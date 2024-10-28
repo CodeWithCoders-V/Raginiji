@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Rotating Box with Fireworks - Happy Diwali</title>
+    <link rel="stylesheet" href="roll.css">
+</head>
+<body>
+    <div class="fireworkDiv"></div>
+    <div class="box">
+        <div class="diwali-text">HAPPY ANNIVERSARY BNDRIYA</div>
+        <span style="--i:1"><img src="1.jpg" alt="Image 1"></span>
+        <span style="--i:2"><img src="11.jpg" alt="Image 2"></span>
+        <span style="--i:3"><img src="2.jpg" alt="Image 3"></span>
+        <span style="--i:4"><img src="22.jpg" alt="Image 4"></span>
+        <span style="--i:5"><img src="4.jpg" alt="Image 5"></span>
+        <span style="--i:6"><img src="55.jpg" alt="Image 6"></span>
+        <span style="--i:7"><img src="3.jpg" alt="Image 7"></span>
+        <span style="--i:8"><img src="44.jpg" alt="Image 8"></span>
+    </div>
+    
+    <!-- Modal for enlarged image -->
+    <div id="modal" class="modal">
+        <span class="close" id="close">&times;</span>
+        <img id="modal-image" class="modal-content" alt="Enlarged Image">
+    </div>
+
+    <!-- Yaadein button -->
+    <button id="yaadein-button" class="yaadein-button" onclick="location.href='slide.html';">Yaadein</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@latest/dist/fireworks.js"></script>
+    <script src="roll.js"></script>
+</body>
+</html>

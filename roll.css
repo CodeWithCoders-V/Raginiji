@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #000000;
+}
+
+.fireworkDiv {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Keep fireworks below other elements */
+}
+
+.box {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    animation: animate 20s linear infinite;
+    z-index: 2; /* Box stays above fireworks */
+}
+
+.diwali-text {
+    position: fixed; /* Keep the text fixed */
+    bottom: 20px; /* Position from the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust to center */
+    color: #FFD700;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 48px; /* Increased font size */
+    font-weight: bold;
+    text-align: center;
+    z-index: 3; /* Text above the box */
+    pointer-events: none; /* Ensure it doesn't interfere with the rotating box */
+    text-shadow: 
+        2px 2px 0 rgba(0, 0, 0, 0.6), /* First layer of shadow */
+        4px 4px 0 rgba(0, 0, 0, 0.4), /* Second layer of shadow */
+        6px 6px 0 rgba(0, 0, 0, 0.2); /* Third layer of shadow for more depth */
+}
+
+@keyframes animate {
+    0% {
+        transform: perspective(1000px) rotateY(0deg);
+    }
+    100% {
+        transform: perspective(1200px) rotateY(360deg);
+    }
+}
+
+.box span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transform: rotateY(calc(var(--i) * 45deg)) translateZ(410px);
+    -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.267));
+}
+
+.box span img {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 100%; /* Limit height to prevent overflow */
+    object-fit: contain; /* Ensure the entire image is visible */
+    transform: translate(-50%, -50%); /* Adjust to center */
+    border-radius: 10px; /* Default border radius */
+    transition: transform 0.3s ease, border-radius 0.3s ease; /* Smooth transition effect */
+    z-index: 2; /* Ensure images are above fireworks */
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.8); /* Black background with transparency */
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%; /* Responsive max width */
+    max-height: 90%; /* Responsive max height */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white; /* Close button color */
+    font-size: 30px; /* Close button size */
+    font-weight: bold;
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.yaadein-button {
+    position: fixed; /* Keep it fixed at the bottom */
+    bottom: 10px; /* Position from the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust to center */
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #FFD700; /* Gold color */
+    color: #000; /* Black text */
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 4; /* Ensure it's above other elements */
+}
+
+.yaadein-button:hover {
+    background-color: #e0b800; /* Darker gold on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
