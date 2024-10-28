@@ -6,11 +6,14 @@ body {
     font: 1em/1 Inter, sans-serif;
     min-height: 55vh;
     margin: 0;
+    padding: 0 10px; /* Add padding for small screen sides */
 }
 
 .hangers {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    justify-content: center; /* Center align for mobile */
 }
 
 form {
@@ -18,6 +21,7 @@ form {
     flex-direction: column;
     align-items: center;
     max-width: 500px;
+    width: 100%; /* Make form take full width on small screens */
     padding: 35px;
     font-size: 17px;
     color: rgb(0, 0, 0);
@@ -30,6 +34,7 @@ form {
 
 .buttons {
     display: flex;
+    justify-content: center;
     margin-top: 10px;
 }
 
@@ -63,31 +68,47 @@ form {
 }
 
 .img-hanger {
-    width: 180px; /* Smaller width */
-    height: 260px; /* Smaller height */
+    width: 180px;
+    height: 260px;
     border: 8px solid #f2f2f2;
     transform-origin: center -20px;
     animation: swing 1s ease-in-out alternate infinite;
-    margin: 0 20px; /* Add margin for spacing */
-    position: relative; /* Set position relative for adjustments */
+    margin: 0 20px;
+    position: relative;
 }
 
-/* Position adjustments for left hangers */
-.left:first-of-type {
-    top: 14em; /* Move up from the top */
+/* Adjust for smaller screens */
+@media (max-width: 768px) {
+    .img-hanger {
+        width: 140px; /* Smaller width for smaller devices */
+        height: 220px; /* Adjust height */
+    }
+    
+    form {
+        max-width: 100%; /* Full width on smaller screens */
+        padding: 20px; /* Less padding */
+    }
+
+    #yes, #no {
+        margin: 0 10px; /* Less margin */
+        padding: 10px 24px; /* Smaller padding */
+    }
 }
 
-.left:last-of-type {
-    top: 300px; /* Move down from the top */
-}
+@media (max-width: 480px) {
+    .img-hanger {
+        display: none; /* Hide hangers on very small screens */
+    }
 
-/* Position adjustments for right hangers */
-.right:first-of-type {
-    top: 400px; /* Move up from the top (adjusted slightly down) */
-}
+    form {
+        font-size: 14px; /* Smaller font size */
+        padding: 15px; /* Less padding */
+    }
 
-.right:last-of-type {
-    top: 290px; /* Keep it the same as left last */
+    #yes, #no {
+        padding: 8px 16px; /* Adjust padding */
+        font-size: 0.9em; /* Smaller font size */
+    }
 }
 
 @keyframes swing {
@@ -155,4 +176,3 @@ form {
         opacity: 0;
     }
 }
-
